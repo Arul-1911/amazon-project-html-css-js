@@ -9,10 +9,6 @@ import { formatCurrecncy } from "./utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
 
-const today = dayjs();
-const deliveryDate = today.add(7, "days");
-console.log(deliveryDate.format("dddd, MMMM D"));
-
 let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
@@ -26,7 +22,6 @@ cart.forEach((cartItem) => {
     }
   });
 
-  // console.log(matchingProduct);
 
   const deliveryOptionsId = cartItem.deliveryOptionsId;
 
@@ -40,9 +35,7 @@ cart.forEach((cartItem) => {
 
   const today = dayjs();
   const deliveryDate = today.add(deliveryOption.deliveryDays,'days');
-  const dateString = deliveryDate.format(
-    'dddd, MMMM D '
-  );
+  const dateString = deliveryDate.format('dddd, MMMM D ');
 
 
 
