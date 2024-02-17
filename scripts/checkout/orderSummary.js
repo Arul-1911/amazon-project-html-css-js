@@ -9,6 +9,7 @@ import {
   import { formatCurrecncy } from "../utils/money.js";
   import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
   import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
+  import { renderPaymentSummary } from "./paymentSummary.js";
   
   export function renderOrderSummary(){
   
@@ -133,6 +134,7 @@ import {
     link.addEventListener("click", () => {
       const productIdLog = link.dataset.productId;
       removeCart(productIdLog);
+      
       console.log(cart);
   
       const container = document.querySelector(
@@ -140,6 +142,7 @@ import {
       );
       container.remove();
       updateCartQuantity();
+      renderPaymentSummary();
     });
   });
   
@@ -204,6 +207,7 @@ import {
         const {productId, deliveryOptionsId} = element.dataset;
         updateDeliveryOption(productId, deliveryOptionsId);
         renderOrderSummary();
+        renderPaymentSummary();
       })
     })
   
