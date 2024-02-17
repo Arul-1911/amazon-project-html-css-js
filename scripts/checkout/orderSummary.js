@@ -137,10 +137,7 @@ import {
       
       console.log(cart);
   
-      const container = document.querySelector(
-        `.js-cart-item-container-${productIdLog}`
-      );
-      container.remove();
+      renderOrderSummary();
       updateCartQuantity();
       renderPaymentSummary();
     });
@@ -208,8 +205,8 @@ import {
         updateDeliveryOption(productId, deliveryOptionsId);
         renderOrderSummary();
         renderPaymentSummary();
-      })
-    })
+      });
+    });
   
   };
   
